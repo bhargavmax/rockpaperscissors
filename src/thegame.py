@@ -1,12 +1,12 @@
 from src import images
 from src import inputoutput
 
-def gamez():
-    inputoutput.inpoot()
-    if(inputoutput.choiceU==inputoutput.choiceS):
+def gamez(s):
+    choiceU, choiceS = inputoutput.inpoot()
+    if(choiceU==choiceS):
         print ("Draw")
-    elif(inputoutput.choiceU==1) :
-        if(inputoutput.choiceS==2):
+    elif(choiceU==1) :
+        if(choiceS==2):
             print ("Your choice : ")
             images.Rock()
             print ("System's choice : ")
@@ -14,17 +14,17 @@ def gamez():
             print ("--------------")
             print ("Rock gets beaten by Paper")
             print ("System gets a point")
-            inputoutput.sys+=1
-        if(inputoutput.choiceS==3):
+            s.increase_sys()
+        if(choiceS==3):
             print ("Your choice : ")
             images.Rock()
             print ("System's choice : ")
             images.Scissors()
             print ("Rock beats Scissors")
             print ("User gets a point")
-            inputoutput.user+=1
-    elif(inputoutput.choiceU==2):
-        if(inputoutput.choiceS==1):
+            s.increase_user()
+    elif(choiceU==2):
+        if(choiceS==1):
             print ("Your choice : ")
             images.Paper()
             print ("System's choice : ")
@@ -32,8 +32,8 @@ def gamez():
             print ("--------------")
             print ("Paper beats Rock")
             print ("User gets a point")
-            inputoutput.user+=1
-        if(inputoutput.choiceS==3):
+            s.increase_user()
+        if(choiceS==3):
             print ("Your choice : ")
             images.Paper()
             print ("System's choice : ")
@@ -41,9 +41,9 @@ def gamez():
             print ("--------------")
             print ("Paper gets beaten by Scissors")
             print ("System gets a point")
-            inputoutput.sys+=1
-    elif(inputoutput.choiceU==3):
-        if(inputoutput.choiceS==1):
+            s.increase_sys()
+    elif(choiceU==3):
+        if(choiceS==1):
             print ("Your choice : ")
             images.Scissors()
             print ("System's choice : ")
@@ -51,8 +51,8 @@ def gamez():
             print ("--------------")
             print ("Scissors get beaten by Rock")
             print ("System gets a point")
-            inputoutput.sys+=1
-        if(inputoutput.choiceS==2):
+            s.increase_sys()
+        if(choiceS==2):
             print ("Your choice : ")
             images.Scissors()
             print ("System's choice : ")
@@ -60,6 +60,8 @@ def gamez():
             print ("--------------")
             print ("Scissors beat Paper")
             print ("User gets a point")
-            inputoutput.user+=1
-    print ("User : ",inputoutput.user)
-    print ("System : ",inputoutput.sys)
+            s.increase_user()
+    user, sys = s.return_scores()
+    print ("User : ", user)
+    print ("System : ", sys)
+    return s

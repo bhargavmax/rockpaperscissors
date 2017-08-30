@@ -4,11 +4,11 @@ from src import inputoutput
 
 
 def main() :
-    inputoutput.setozero()
+    s = inputoutput.scoreBoard()
     ch="y"
     while(ch=="y" or ch=="Y"):
         images.menu()
-        thegame.gamez()
+        thegame.gamez(s)
         ch=input("Would you like to continue? (Y/N)")
     return
 
